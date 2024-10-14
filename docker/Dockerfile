@@ -8,7 +8,7 @@ RUN set -eux; \
 
 COPY prepare /usr/bin/
 COPY supervisor /etc/supervisor
-ADD Server_Essence_7.3_SevenSigns.tar.gz /app
+ADD L2J_Mobius_Essence_7.3_SevenSigns.tar.gz /app
 
 RUN set -eux; \
   chmod a+x /usr/bin/prepare /app/login/LoginServerTask.sh /app/game/GameServerTask.sh; \
