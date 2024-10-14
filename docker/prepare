@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#shell
+mv /app/game/config/default-ipconfig.xml /app/game/config/ipconfig.xml
+
+# db
+mysql -uroot -hlocalhost -e "CREATE DATABASE IF NOT EXISTS \`l2jmobiusessence\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+mysql -uroot -hlocalhost -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '';"
+
+# login
+for sql_file in /app/db_installer/sql/login/*.sql; do
+  if [ -f "$sql_file" ]; then
+    mysql -uroot l2jmobiusessence < "$sql_file"
+  fi
+done
+
+# game
+for sql_file in /app/db_installer/sql/game/*.sql; do
+  if [ -f "$sql_file" ]; then
+    mysql -uroot l2jmobiusessence < "$sql_file"
+  fi
+done
+
+mysql -uroot -hlocalhost -e "truncate announcements;"

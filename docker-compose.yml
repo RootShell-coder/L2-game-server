@@ -1,0 +1,16 @@
+---
+services:
+  game:
+    image: "l2_server"
+    ports:
+      - "127.0.0.1:7777:7777"
+      - "127.0.0.1:2106:2106"
+    restart: "unless-stopped"
+    deploy:
+      resources:
+        limits:
+          cpus: '3.0'
+          memory: 6G
+        reservations:
+          cpus: '3.0'
+          memory: 6G
