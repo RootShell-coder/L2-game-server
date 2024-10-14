@@ -3,8 +3,8 @@ name: L2GS
 on:
   push:
     branches: ["master"]
-    paths:
-      - 'docker/**'
+    # paths:
+    #  - 'docker/**'
   pull_request:
     branches: ["master"]
     paths:
