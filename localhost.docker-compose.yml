@@ -3,8 +3,8 @@ services:
   game:
     image: "ghcr.io/rootshell-coder/l2-game-server:latest"
     ports:
-      - "127.0.0.1:7777:7777"
-      - "127.0.0.1:2106:2106"
+      - "7777:7777"
+      - "2106:2106"
     restart: "unless-stopped"
     deploy:
       resources:

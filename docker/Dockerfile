@@ -16,4 +16,5 @@ RUN set -eux; \
   chown mysql:mysql /var/run/mysqld;
 
 WORKDIR /app
+VOLUME ["/var/lib/mysql/", "/app/login", "/app/game" ]
 ENTRYPOINT ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]

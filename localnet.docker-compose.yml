@@ -1,0 +1,35 @@
+---
+# prepare run `sudo mkdir -p /srv/l2-essence/mysql /srv/l2-essence/login /srv/l2-essence/game`
+
+networks:
+  l2-net:
+    attachable: true
+
+volumes:
+  mysql:
+    driver_opts:
+      type: local
+      device: '/srv/l2-essence/mysql'
+      o: bind
+  login:
+    driver_opts:
+      type: local
+      device: '/srv/l2-essence//login'
+      o: bind
+  game:
+    driver_opts:
+      type: local
+      device: '/srv/l2-essence/game'
+      o: bind
+
+services:
+  game:
+    image: "ghcr.io/rootshell-coder/l2-game-server:latest"
+    ports:
+      - "7777:7777"
+      - "2106:2106"
+    volumes:
+      - "mysql:/var/lib/mysql/"
+      - "login:/app/login"
+      - "game:/app/game"
+    restart: "always"
