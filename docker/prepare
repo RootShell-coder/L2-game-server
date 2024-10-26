@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# wait for mysql
+sleep 3
+
 #shell
 mv /app/game/config/default-ipconfig.xml /app/game/config/ipconfig.xml
 
@@ -21,4 +24,7 @@ for sql_file in /app/db_installer/sql/game/*.sql; do
   fi
 done
 
-mysql -uroot -hlocalhost -e "truncate announcements;"
+mysql -uroot -hlocalhost l2jmobiusessence -e "truncate announcements;"
+
+# ready
+touch /app/ready
