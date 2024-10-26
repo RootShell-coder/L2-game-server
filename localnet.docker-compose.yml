@@ -3,20 +3,24 @@
 
 networks:
   l2-net:
+    name: l2-net
     attachable: true
 
 volumes:
-  mysql:
+  l2-mysql:
+    name: l2-mysql
     driver_opts:
       type: local
       device: '/srv/l2-essence/mysql'
       o: bind
-  login:
+  l2-login:
+    name: l2-login
     driver_opts:
       type: local
       device: '/srv/l2-essence//login'
       o: bind
-  game:
+  l2-game:
+    name: l2-game
     driver_opts:
       type: local
       device: '/srv/l2-essence/game'
@@ -28,8 +32,10 @@ services:
     ports:
       - "7777:7777"
       - "2106:2106"
+    networks:
+      - "l2-net"
     volumes:
-      - "mysql:/var/lib/mysql/"
-      - "login:/app/login"
-      - "game:/app/game"
+      - "l2-mysql:/var/lib/mysql/"
+      - "l2-login:/app/login"
+      - "l2-game:/app/game"
     restart: "always"
