@@ -27,4 +27,3 @@ services:
 
 To run, execute `docker compose up -d`, to stop `docker compose down` _Always starts from the very beginning after restart_
 
-You can see the client for the game [here](https://bitbucket.org/MobiusDev/l2j_mobius/src/master/L2J_Mobius_Essence_7.3_SevenSigns/readme.txt)
