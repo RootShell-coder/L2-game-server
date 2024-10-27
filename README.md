@@ -18,12 +18,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '3.0'
+          cpus: "3.0"
           memory: 6G
         reservations:
-          cpus: '3.0'
+          cpus: "3.0"
           memory: 6G
 ```
 
 To run, execute `docker compose up -d`, to stop `docker compose down` _Always starts from the very beginning after restart_
-
